@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/seungjae-portfolio/static/css/main.f0b2b023.css",
+    "main.js": "/seungjae-portfolio/static/js/main.2bac32ef.js",
+    "index.html": "/seungjae-portfolio/index.html",
+    "main.f0b2b023.css.map": "/seungjae-portfolio/static/css/main.f0b2b023.css.map",
+    "main.2bac32ef.js.map": "/seungjae-portfolio/static/js/main.2bac32ef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f0b2b023.css",
+    "static/js/main.2bac32ef.js"
+  ]
+}
