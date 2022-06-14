@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply scroll-smooth;
+}
+
+.stop-scroll {
+  @apply h-full overflow-hidden;
+}
+
+.bg {
+  @apply bg-cover bg-center;
+}
