@@ -1,16 +1,18 @@
 export default function About() {
   return (
-    <div className="text-slate-900">
-      <div className="text-4xl">👨‍💻&nbsp;주니어 개발자 황승재</div>
-      짧은 자기소개와 시간별 커리어
-      {/* <div className="px-6 py-3 bg-white divide-y rounded-lg shadow-lg">
-        <div>
-          <div className="text-3xl font-black">제목</div>
-          <div className="text-xl text-slate-400">부제목</div>
-        </div>
-        <div>칸1</div>
-        <div>칸2</div>
-      </div> */}
+    <div className="space-y-5 text-slate-900">
+      <div className="text-4xl">👨‍💻&nbsp;황승재를 소개합니다</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ex lorem,
+        dapibus nec mi eu, cursus molestie nulla. Praesent ut ante porta, ornare
+        orci ornare, facilisis urna. Cras non risus sed nisi consequat dapibus
+        id quis dolor. Nam enim metus, lacinia et augue porttitor, finibus
+        ultricies augue. Praesent venenatis diam in enim bibendum, ut bibendum
+        leo vulputate. Sed tempor felis id lorem vehicula luctus. Vestibulum id
+        auctor urna. Sed ac metus nibh. Suspendisse sed eleifend elit, ac semper
+        ligula. Vestibulum pellentesque egestas tortor, eget porta leo lacinia
+        et.
+      </div>
     </div>
   );
 }

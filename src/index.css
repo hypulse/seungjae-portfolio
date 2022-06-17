@@ -10,7 +10,3 @@ body {
 .stop-scroll {
   @apply h-full overflow-hidden;
 }
-
-.bg {
-  @apply bg-cover bg-center;
-}
