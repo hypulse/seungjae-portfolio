@@ -1,27 +1,24 @@
 {
   "files": {
-    "main.css": "/seungjae-portfolio/static/css/main.0b426f63.css",
-    "main.js": "/seungjae-portfolio/static/js/main.7b29bad8.js",
-    "static/media/4.png": "/seungjae-portfolio/static/media/4.710e93479359265201c9.png",
-    "static/media/2.png": "/seungjae-portfolio/static/media/2.d896d57d9ba9df1b3be1.png",
-    "static/media/1.png": "/seungjae-portfolio/static/media/1.0b21f024d794027794f1.png",
+    "main.css": "/seungjae-portfolio/static/css/main.e6ff3165.css",
+    "main.js": "/seungjae-portfolio/static/js/main.99379c98.js",
+    "static/media/4.png": "/seungjae-portfolio/static/media/4.9a216072d4b9df846b34.png",
+    "static/media/2.png": "/seungjae-portfolio/static/media/2.c0b58dd036075820b20e.png",
+    "static/media/1.png": "/seungjae-portfolio/static/media/1.a10bcdd9101e18e8104f.png",
     "static/media/3.png": "/seungjae-portfolio/static/media/3.05b3f74b1333253eae4e.png",
     "static/media/4-sm.png": "/seungjae-portfolio/static/media/4-sm.e8b5ab286c7d801c3e1a.png",
     "static/media/2.jpg": "/seungjae-portfolio/static/media/2.6de1182aa331206451a2.jpg",
     "static/media/2-sm.png": "/seungjae-portfolio/static/media/2-sm.b3d1b693a4e83bebedf2.png",
     "static/media/1.jpg": "/seungjae-portfolio/static/media/1.b930da849aa010a6c1ce.jpg",
-    "static/media/9.png": "/seungjae-portfolio/static/media/9.7bec81002a1b1f6d9c18.png",
     "static/media/1-sm.png": "/seungjae-portfolio/static/media/1-sm.5cec231a22d88622865e.png",
     "static/media/3-sm.png": "/seungjae-portfolio/static/media/3-sm.b1ef83189cc89ab640dd.png",
-    "static/media/7.png": "/seungjae-portfolio/static/media/7.904694f8ff0d50db8b4e.png",
-    "static/media/8.png": "/seungjae-portfolio/static/media/8.6044eab8f34ae111ec9a.png",
-    "static/media/10.png": "/seungjae-portfolio/static/media/10.04c1467b5845bfbab341.png",
+    "static/media/9.png": "/seungjae-portfolio/static/media/9.adb7d494927b07a7f7e5.png",
     "index.html": "/seungjae-portfolio/index.html",
-    "main.0b426f63.css.map": "/seungjae-portfolio/static/css/main.0b426f63.css.map",
-    "main.7b29bad8.js.map": "/seungjae-portfolio/static/js/main.7b29bad8.js.map"
+    "main.e6ff3165.css.map": "/seungjae-portfolio/static/css/main.e6ff3165.css.map",
+    "main.99379c98.js.map": "/seungjae-portfolio/static/js/main.99379c98.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b426f63.css",
-    "static/js/main.7b29bad8.js"
+    "static/css/main.e6ff3165.css",
+    "static/js/main.99379c98.js"
   ]
 }
