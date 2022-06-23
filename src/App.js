@@ -61,7 +61,7 @@ function App() {
 
   useEffect(() => {
     const pageShow = () => {
-      if (openPost === true && window.location.hash !== "#details") {
+      if (openPost === true && window.location.hash !== "#work") {
         document.body.classList.remove("stop-scroll");
         postRef.current.classList.remove("translate-y-0");
         postRef.current.classList.remove("visible");
@@ -109,7 +109,7 @@ function App() {
         postRef.current.classList.remove("invisible");
         postRef.current.classList.add("translate-y-0");
         postRef.current.classList.add("visible");
-        window.history.pushState(null, null, "#details");
+        window.history.pushState(null, null, "#work");
       }
       return !prev;
     });
