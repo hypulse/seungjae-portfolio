@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ImgFrame from "./ImgFrame";
 
-export default function SlideFrame({ children, slideList = [] }) {
+export default function SlideFrame({ slideList = [] }) {
   const [index, setIndex] = useState(0);
   const ref = useRef();
 
@@ -33,7 +33,7 @@ export default function SlideFrame({ children, slideList = [] }) {
           return (
             <div
               key={i}
-              className="absolute w-full h-full transition-opacity duration-[1000ms] opacity-0 slide"
+              className="absolute w-full h-full transition-opacity duration-1000 opacity-0 slide"
             >
               <ImgFrame small={src.small} big={src.big}></ImgFrame>
             </div>
@@ -42,17 +42,13 @@ export default function SlideFrame({ children, slideList = [] }) {
           return (
             <div
               key={i}
-              className="absolute w-full h-full transition-opacity duration-[1000ms] opacity-100 slide"
+              className="absolute w-full h-full transition-opacity duration-1000 opacity-100 slide"
             >
               <ImgFrame small={src.small} big={src.big}></ImgFrame>
             </div>
           );
         }
       })}
-      <div className="absolute w-full h-full bg-black opacity-50"></div>
-      <div className="relative z-10 flex items-end w-full h-full p-4">
-        {children}
-      </div>
     </div>
   );
 }

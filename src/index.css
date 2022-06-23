@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply scroll-smooth;
+  @apply scroll-smooth font-normal font-['IBM_Plex_Sans_KR'] text-slate-900;
 }
 
 .stop-scroll {

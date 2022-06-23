@@ -1,6 +1,6 @@
 // src\components\ImgFrame.js
 import React from "react";
-import useImgBlurUp from "../hooks/useImgBlurUp";
+import useImgBlurUp from "../../hooks/useImgBlurUp";
 
 export default function ImgFrame({ small, big, alt = "" }) {
   const [src, blur] = useImgBlurUp(small, big);

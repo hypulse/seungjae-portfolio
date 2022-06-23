@@ -1,4 +1,4 @@
-import useImgBlurUp from "../hooks/useImgBlurUp";
+import useImgBlurUp from "../../hooks/useImgBlurUp";
 
 export default function BgFrame({ small, big, children }) {
   const [src, blur] = useImgBlurUp(small, big);
