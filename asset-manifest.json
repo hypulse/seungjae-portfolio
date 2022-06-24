@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/seungjae-portfolio/static/css/main.02511181.css",
-    "main.js": "/seungjae-portfolio/static/js/main.6a8a9e9b.js",
+    "main.css": "/seungjae-portfolio/static/css/main.af850f8b.css",
+    "main.js": "/seungjae-portfolio/static/js/main.7fb9f061.js",
     "static/media/3.png": "/seungjae-portfolio/static/media/3.6ab6dfab1995ce61ff34.png",
     "static/media/2.png": "/seungjae-portfolio/static/media/2.6f1bcfde92455589b1c7.png",
     "static/media/1.png": "/seungjae-portfolio/static/media/1.17d5da86a4d9900e0305.png",
@@ -15,11 +15,11 @@
     "static/media/2-sm.jpg": "/seungjae-portfolio/static/media/2-sm.1bdd2b08ec9eb79f047f.jpg",
     "static/media/1-sm.jpg": "/seungjae-portfolio/static/media/1-sm.64fccb417c3f3343eb23.jpg",
     "index.html": "/seungjae-portfolio/index.html",
-    "main.02511181.css.map": "/seungjae-portfolio/static/css/main.02511181.css.map",
-    "main.6a8a9e9b.js.map": "/seungjae-portfolio/static/js/main.6a8a9e9b.js.map"
+    "main.af850f8b.css.map": "/seungjae-portfolio/static/css/main.af850f8b.css.map",
+    "main.7fb9f061.js.map": "/seungjae-portfolio/static/js/main.7fb9f061.js.map"
   },
   "entrypoints": [
-    "static/css/main.02511181.css",
-    "static/js/main.6a8a9e9b.js"
+    "static/css/main.af850f8b.css",
+    "static/js/main.7fb9f061.js"
   ]
 }
