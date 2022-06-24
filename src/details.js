@@ -8,8 +8,9 @@ import fadeout4 from "./screenshots/fadeout/4.png";
 import fadeout4Sm from "./screenshots/fadeout/4-sm.png";
 
 const contentFadeout = {
-  title:
-    "페이드아웃 - 미스테리 비주얼 노벨, 스토리형 퍼즐 게임, 오프라인 어드벤처 게임",
+  title: "페이드아웃 - 미스테리 비주얼 노벨",
+  summary:
+    "개발 경험이 없는 4명의 팀원들과 협력해서 출시한 모바일 게임입니다. 어려움도 많았지만 자신의 경험을 공유하는 뜻 깊은 여정을 함께할 수 있었습니다.",
   techStack: ["Unity", "C#", "PlayStore"],
   deadline: { start: "2020. 10. 22.", end: "2021. 6. 2." },
   url: "https://play.google.com/store/apps/details?id=com.lab9874.fadeout",

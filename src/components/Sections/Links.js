@@ -1,20 +1,20 @@
 export default function Links() {
   function link() {
     return (
-      <div className="p-4 space-y-4 border">
+      <div className="px-8 py-6 space-y-4 border">
         <div className="text-xl font-semibold">네이버 블로그</div>
-        <div className="text-lg">
+        <div>
           Donec massa lorem, aliquam eu lacus non, interdum rutrum tellus. Donec
           a aliquet augue. Ut.
         </div>
-        <div className="text-blue-500 ">Read my blog</div>
+        <div className="text-blue-500">Read my blog</div>
       </div>
     );
   }
   return (
     <div className="space-y-8">
       <div className="space-y-6">
-        <div className="text-4xl font-semibold">Links</div>
+        <div className="text-4xl font-semibold">Archives</div>
         <div className="text-xl">
           Vestibulum faucibus hendrerit nunc et accumsan. Donec pharetra ut leo
           sed pellentesque.

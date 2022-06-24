@@ -9,7 +9,7 @@ export default function AboutMe() {
         <div className="space-y-6">
           <div className="space-y-2">
             <div className="text-lg">Lorem ipsum</div>
-            <div className="font-semibold text-7xl">Donec</div>
+            <div className="text-6xl font-semibold">Donec</div>
           </div>
           <div className="space-y-4">
             <div className="text-2xl font-light">
@@ -22,7 +22,7 @@ export default function AboutMe() {
             </div>
           </div>
         </div>
-        <button className="px-6 py-3 bg-blue-500 rounded-md" onClick={() => {}}>
+        <button className="px-5 py-3 bg-blue-500 rounded" onClick={() => {}}>
           Learn more
         </button>
       </div>

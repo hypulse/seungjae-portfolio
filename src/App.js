@@ -8,6 +8,7 @@ import LinkedIn from "./components/Sections/LinkedIn";
 import Links from "./components/Sections/Links";
 import TechStacks from "./components/Sections/TechStacks";
 import Work from "./components/Sections/Work";
+import LearnMore from "./components/LearnMore";
 
 const menuIcon = (
   <svg
@@ -57,7 +58,7 @@ function App() {
 
   const [openMenu, setOpenMenu] = useState(false);
   const [openPost, setOpenPost] = useState(false);
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState();
 
   useEffect(() => {
     const pageShow = () => {
@@ -93,7 +94,7 @@ function App() {
     });
   };
 
-  const togglePost = (post = {}) => {
+  const togglePost = (post) => {
     setPost(post);
     setOpenPost((prev) => {
       if (prev) {
@@ -123,7 +124,7 @@ function App() {
     <>
       {/* side menu */}
       <div
-        className="fixed top-0 right-0 z-30 h-full transition-[transform, visibility] duration-200 translate-x-full bg-white shadow-md w-80 invisible"
+        className="fixed top-0 right-0 z-30 h-full transition-[transform, visibility] duration-200 translate-x-full bg-white shadow w-80 invisible"
         ref={menuRef}
       >
         <div className="flex items-center h-16 px-4 border-b">
@@ -132,7 +133,7 @@ function App() {
             {closeIcon}
           </div>
         </div>
-        <div className="flex flex-col p-6 space-y-6 font-semibold text-gray-500">
+        <div className="flex flex-col px-8 py-6 space-y-6 font-semibold text-gray-500">
           <div
             onClick={() => {
               toggleMenu();
@@ -147,7 +148,7 @@ function App() {
               scroll(linksRef);
             }}
           >
-            Links
+            Archives
           </div>
           <div
             onClick={() => {
@@ -175,24 +176,28 @@ function App() {
           </div>
         </div>
       </div>
-      {/* learn more */}
+      {/* work */}
       <div
-        className="fixed top-0 z-30 w-full h-full transition-[transform, visibility] duration-200 translate-y-full bg-white invisible"
+        className="fixed top-0 z-30 w-full h-full transition-[transform, visibility] duration-200 translate-y-full bg-white invisible flex flex-col"
         ref={postRef}
       >
-        <div className="flex items-center h-16 px-4 border-b">
-          <div className="grow"></div>
-          <div className="p-2 text-gray-500" onClick={togglePost}>
-            {closeIcon}
+        <div className="h-16 border-b shrink-0">
+          <div className="flex items-center h-full px-4 mx-auto max-w-7xl">
+            <div className="grow"></div>
+            <div className="p-2 text-gray-500" onClick={togglePost}>
+              {closeIcon}
+            </div>
           </div>
         </div>
-        <div></div>
+        <div className="w-full px-6 py-8 mx-auto overflow-scroll max-w-7xl grow">
+          <LearnMore></LearnMore>
+        </div>
       </div>
       {/* nav bar */}
       <nav className="fixed top-0 z-20 w-full h-16 bg-white border-b">
-        <div className="flex items-center h-16 px-4 mx-auto space-x-12 max-w-7xl">
-          <div className="w-28 shrink-0">
-            <img alt="" src={wordmark} className="w-full"></img>
+        <div className="flex items-center h-full px-4 mx-auto space-x-12 max-w-7xl">
+          <div className="h-6 shrink-0">
+            <img alt="" src={wordmark} className="h-full"></img>
           </div>
           <div className="grow"></div>
           <div className="p-2 text-gray-500 sm:hidden" onClick={toggleMenu}>
@@ -212,7 +217,7 @@ function App() {
               scroll(linksRef);
             }}
           >
-            Links
+            Archives
           </div>
           <div
             className="hidden font-semibold text-gray-500 sm:block"
@@ -241,7 +246,6 @@ function App() {
         </div>
       </nav>
       <div className="h-16"></div>
-      {/* section start */}
       <div className="relative -top-16" ref={aboutRef}></div>
       <div className="bg-black">
         <AboutMe></AboutMe>
