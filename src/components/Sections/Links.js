@@ -1,13 +1,17 @@
 export default function Links() {
-  function link() {
+  function link(title, text, link, linkText) {
     return (
-      <div className="px-8 py-6 space-y-4 border">
-        <div className="text-xl font-semibold">네이버 블로그</div>
-        <div>
-          Donec massa lorem, aliquam eu lacus non, interdum rutrum tellus. Donec
-          a aliquet augue. Ut.
+      <div className="px-8 py-6 m-4 space-y-4 border">
+        <div className="text-xl font-semibold">{title}</div>
+        <div className="h-[72px] overflow-hidden">{text}</div>
+        <div
+          className="text-blue-600 cursor-pointer"
+          onClick={() => {
+            window.open(link);
+          }}
+        >
+          {linkText}
         </div>
-        <div className="text-blue-500">Read my blog</div>
       </div>
     );
   }
@@ -16,51 +20,28 @@ export default function Links() {
       <div className="space-y-6">
         <div className="text-4xl font-semibold">Archives</div>
         <div className="text-xl">
-          Vestibulum faucibus hendrerit nunc et accumsan. Donec pharetra ut leo
-          sed pellentesque.
+          프로그래밍과 함께한 여정을 다음에 기록하고 있습니다.
         </div>
       </div>
 
-      <div className="sm:flex sm:space-x-8">
-        <div className="basis-0 grow">{link()}</div>
-        <div className="basis-0 grow">
-          <div className="pt-8 sm:pt-0">{link()}</div>
+      <div className="flex flex-wrap -m-4">
+        <div className="basis-full sm:basis-1/2">
+          {link(
+            "Naver Blog",
+            "학습한 내용들을 기록하고 있습니다. 개발 과정에서 생긴 문제 해결 과정을 공유하고 있습니다.",
+            "https://blog.naver.com/sjinsilval28",
+            "Read my blog"
+          )}
+        </div>
+        <div className="basis-full sm:basis-1/2">
+          {link(
+            "GitHub",
+            "작성한 코드를 깃허브에 저장하고 공유하고 있습니다. 간단한 어플리케이션을 Deployment 하고 있습니다.",
+            "https://github.com/hypulse",
+            "Explore repositories"
+          )}
         </div>
       </div>
-
-      <div className="sm:flex sm:space-x-8">
-        <div className="basis-0 grow">{link()}</div>
-        <div className="basis-0 grow">
-          {/* <div className="pt-8 sm:pt-0">{link()}</div> */}
-        </div>
-      </div>
-
-      {/* <div className="p-4 space-y-4 border">
-        <div className="text-xl font-semibold">네이버 블로그</div>
-        <div className="text-lg">
-          JetBrains Rider is a fast and powerful C# editor for Unity that runs
-          on Windows, Mac, and Linux.
-        </div>
-        <div className="text-blue-500 ">Read my blog</div>
-      </div>
-
-      <div className="p-4 space-y-4 border">
-        <div className="text-xl font-semibold">GitHub</div>
-        <div className="text-lg">
-          JetBrains Rider is a fast and powerful C# editor for Unity that runs
-          on Windows, Mac, and Linux.
-        </div>
-        <div className="text-blue-500 ">Explore repositories</div>
-      </div>
-
-      <div className="p-4 space-y-4 border">
-        <div className="text-xl font-semibold">네이버 블로그</div>
-        <div className="text-lg">
-          JetBrains Rider is a fast and powerful C# editor for Unity that runs
-          on Windows, Mac, and Linux.
-        </div>
-        <div className="text-blue-500 ">Read my blog</div>
-      </div> */}
     </div>
   );
 }

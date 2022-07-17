@@ -10,3 +10,7 @@ body {
 .stop-scroll {
   @apply h-full overflow-hidden;
 }
+
+a {
+  @apply cursor-pointer;
+}

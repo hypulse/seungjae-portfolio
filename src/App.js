@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import wordmark from "./wordmark.png";
 import Footer from "./components/Footer";
 import AboutMe from "./components/Sections/AboutMe";
@@ -36,17 +36,6 @@ const closeIcon = (
   </svg>
 );
 
-function useStableRef() {
-  const ref = useRef();
-  const setRef = useCallback((node) => {
-    if (node !== null) {
-      ref.current = node;
-    }
-  }, []);
-
-  return [setRef];
-}
-
 function App() {
   const aboutRef = useRef();
   const careerRef = useRef();
@@ -54,15 +43,16 @@ function App() {
   const linksRef = useRef();
   const skillsRef = useRef();
   const menuRef = useRef();
-  const postRef = useStableRef();
+  const postRef = useRef();
 
-  const [openMenu, setOpenMenu] = useState(false);
+  let openMenu = false;
+  // const [openMenu, setOpenMenu] = useState(false);
   const [openPost, setOpenPost] = useState(false);
   const [post, setPost] = useState();
 
   useEffect(() => {
     const pageShow = () => {
-      if (openPost === true && window.location.hash !== "#work") {
+      if (openPost === true && window.location.hash !== "#popup") {
         document.body.classList.remove("stop-scroll");
         postRef.current.classList.remove("translate-y-0");
         postRef.current.classList.remove("visible");
@@ -76,22 +66,20 @@ function App() {
   });
 
   const toggleMenu = () => {
-    setOpenMenu((prev) => {
-      if (prev) {
-        document.body.classList.remove("stop-scroll");
-        menuRef.current.classList.remove("translate-x-0");
-        menuRef.current.classList.remove("visible");
-        menuRef.current.classList.add("translate-x-full");
-        menuRef.current.classList.add("invisible");
-      } else {
-        document.body.classList.add("stop-scroll");
-        menuRef.current.classList.remove("translate-x-full");
-        menuRef.current.classList.remove("invisible");
-        menuRef.current.classList.add("translate-x-0");
-        menuRef.current.classList.add("visible");
-      }
-      return !prev;
-    });
+    if (openMenu) {
+      document.body.classList.remove("stop-scroll");
+      menuRef.current.classList.remove("translate-x-0");
+      menuRef.current.classList.remove("visible");
+      menuRef.current.classList.add("translate-x-full");
+      menuRef.current.classList.add("invisible");
+    } else {
+      document.body.classList.add("stop-scroll");
+      menuRef.current.classList.remove("translate-x-full");
+      menuRef.current.classList.remove("invisible");
+      menuRef.current.classList.add("translate-x-0");
+      menuRef.current.classList.add("visible");
+    }
+    openMenu = !openMenu;
   };
 
   const togglePost = (post) => {
@@ -110,7 +98,7 @@ function App() {
         postRef.current.classList.remove("invisible");
         postRef.current.classList.add("translate-y-0");
         postRef.current.classList.add("visible");
-        window.history.pushState(null, null, "#work");
+        window.history.pushState(null, null, "#popup");
       }
       return !prev;
     });
@@ -122,19 +110,22 @@ function App() {
 
   return (
     <>
-      {/* side menu */}
       <div
         className="fixed top-0 right-0 z-30 h-full transition-[transform, visibility] duration-200 translate-x-full bg-white shadow w-80 invisible"
         ref={menuRef}
       >
         <div className="flex items-center h-16 px-4 border-b">
           <div className="grow"></div>
-          <div className="p-2 text-gray-500" onClick={toggleMenu}>
+          <div
+            className="p-2 text-gray-500 transition-colors rounded-full cursor-pointer hover:text-black hover:bg-gray-100"
+            onClick={toggleMenu}
+          >
             {closeIcon}
           </div>
         </div>
-        <div className="flex flex-col px-8 py-6 space-y-6 font-semibold text-gray-500">
+        <div className="flex flex-col py-3 font-semibold text-gray-500 cursor-pointer">
           <div
+            className="px-8 py-3 transition-colors hover:text-black hover:bg-gray-100"
             onClick={() => {
               toggleMenu();
               scroll(aboutRef);
@@ -143,6 +134,7 @@ function App() {
             Home
           </div>
           <div
+            className="px-8 py-3 transition-colors hover:text-black hover:bg-gray-100"
             onClick={() => {
               toggleMenu();
               scroll(linksRef);
@@ -151,6 +143,7 @@ function App() {
             Archives
           </div>
           <div
+            className="px-8 py-3 transition-colors hover:text-black hover:bg-gray-100"
             onClick={() => {
               toggleMenu();
               scroll(galleryRef);
@@ -159,6 +152,7 @@ function App() {
             Gallery
           </div>
           <div
+            className="px-8 py-3 transition-colors hover:text-black hover:bg-gray-100"
             onClick={() => {
               toggleMenu();
               scroll(careerRef);
@@ -167,6 +161,7 @@ function App() {
             Career
           </div>
           <div
+            className="px-8 py-3 transition-colors hover:text-black hover:bg-gray-100"
             onClick={() => {
               toggleMenu();
               scroll(skillsRef);
@@ -176,7 +171,6 @@ function App() {
           </div>
         </div>
       </div>
-      {/* work */}
       <div
         className="fixed top-0 z-30 w-full h-full transition-[transform, visibility] duration-200 translate-y-full bg-white invisible flex flex-col"
         ref={postRef}
@@ -184,27 +178,32 @@ function App() {
         <div className="h-16 border-b shrink-0">
           <div className="flex items-center h-full px-4 mx-auto max-w-7xl">
             <div className="grow"></div>
-            <div className="p-2 text-gray-500" onClick={togglePost}>
+            <div
+              className="p-2 text-gray-500 transition-colors rounded-full cursor-pointer hover:text-black hover:bg-gray-100"
+              onClick={togglePost}
+            >
               {closeIcon}
             </div>
           </div>
         </div>
-        <div className="w-full px-6 py-8 mx-auto overflow-scroll max-w-7xl grow">
-          <LearnMore></LearnMore>
+        <div className="w-full overflow-scroll grow">
+          <LearnMore post={post}></LearnMore>
         </div>
       </div>
-      {/* nav bar */}
       <nav className="fixed top-0 z-20 w-full h-16 bg-white border-b">
-        <div className="flex items-center h-full px-4 mx-auto space-x-12 max-w-7xl">
+        <div className="flex items-center h-full px-4 mx-auto max-w-7xl">
           <div className="h-6 shrink-0">
             <img alt="" src={wordmark} className="h-full"></img>
           </div>
           <div className="grow"></div>
-          <div className="p-2 text-gray-500 sm:hidden" onClick={toggleMenu}>
+          <div
+            className="p-2 text-gray-500 transition-colors rounded-full cursor-pointer hover:bg-gray-100 sm:hidden hover:text-black"
+            onClick={toggleMenu}
+          >
             {menuIcon}
           </div>
           <div
-            className="hidden font-semibold text-gray-500 sm:block"
+            className="hidden h-full px-6 font-semibold text-gray-500 transition-colors cursor-pointer sm:flex sm:items-center hover:bg-gray-100 hover:text-black"
             onClick={() => {
               scroll(aboutRef);
             }}
@@ -212,7 +211,7 @@ function App() {
             Home
           </div>
           <div
-            className="hidden font-semibold text-gray-500 sm:block"
+            className="hidden h-full px-6 font-semibold text-gray-500 transition-colors cursor-pointer sm:flex sm:items-center hover:bg-gray-100 hover:text-black"
             onClick={() => {
               scroll(linksRef);
             }}
@@ -220,7 +219,7 @@ function App() {
             Archives
           </div>
           <div
-            className="hidden font-semibold text-gray-500 sm:block"
+            className="hidden h-full px-6 font-semibold text-gray-500 transition-colors cursor-pointer sm:flex sm:items-center hover:bg-gray-100 hover:text-black"
             onClick={() => {
               scroll(galleryRef);
             }}
@@ -228,7 +227,7 @@ function App() {
             Gallery
           </div>
           <div
-            className="hidden font-semibold text-gray-500 sm:block"
+            className="hidden h-full px-6 font-semibold text-gray-500 transition-colors cursor-pointer sm:flex sm:items-center hover:bg-gray-100 hover:text-black"
             onClick={() => {
               scroll(careerRef);
             }}
@@ -236,7 +235,7 @@ function App() {
             Career
           </div>
           <div
-            className="hidden font-semibold text-gray-500 sm:block"
+            className="hidden h-full px-6 font-semibold text-gray-500 transition-colors cursor-pointer sm:flex sm:items-center hover:bg-gray-100 hover:text-black"
             onClick={() => {
               scroll(skillsRef);
             }}

@@ -1,5 +1,5 @@
 import ImgFrame from "./Frames/ImgFrame";
-import { contentFadeout } from "../details";
+import { doc } from "../details";
 
 const gitHubIcon = (
   <svg
@@ -38,121 +38,131 @@ const linkIcon = (
   </svg>
 );
 
-export default function LearnMore({ post = contentFadeout }) {
+export default function LearnMore({ post = doc }) {
   const {
+    category,
     title,
-    techStack,
-    deadline,
-    url,
-    team,
-    photoList,
-    details,
-    mainFeatures,
-    gitHub,
-    blog,
     summary,
+    buttonLinks,
+    screenshots,
+    mainFeatures,
+    stacks,
+    thisWork,
+    relatedArticles,
+    relatedAritcleLinks,
   } = post;
 
   const prefix = (
     <div>
       <div className="flex flex-wrap -m-1">
-        <div className="px-3 py-1 m-1 text-sm border rounded-full">
-          친구 초대
-        </div>
-        <div className="px-3 py-1 m-1 text-sm border rounded-full">타격감</div>
-        <div className="px-3 py-1 m-1 text-sm border rounded-full">
-          아이템 수집
-        </div>
+        {stacks ? (
+          stacks.map((s, i) => (
+            <div className="px-3 py-1 m-1 text-sm border rounded-full" key={i}>
+              {s}
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
 
+  const buttons = (
+    <div className="flex space-x-2">
+      {buttonLinks?.link ? (
+        <button
+          className="flex px-3 py-2 space-x-2 text-gray-500 transition-colors border rounded hover:text-black"
+          onClick={() => {
+            window.open(buttonLinks.link);
+          }}
+        >
+          {linkIcon}
+        </button>
+      ) : (
+        <></>
+      )}
+      {buttonLinks?.googlePlay ? (
+        <button
+          className="flex px-3 py-2 space-x-2 text-gray-500 transition-colors border rounded hover:text-black"
+          onClick={() => {
+            window.open(buttonLinks.googlePlay);
+          }}
+        >
+          {googlePlayIcon}
+        </button>
+      ) : (
+        <></>
+      )}
+      {buttonLinks?.gitHub ? (
+        <button
+          className="flex px-3 py-2 space-x-2 text-gray-500 transition-colors border rounded hover:text-black"
+          onClick={() => {
+            window.open(buttonLinks.gitHub);
+          }}
+        >
+          {gitHubIcon}
+        </button>
+      ) : (
+        <></>
+      )}
+    </div>
+  );
+
   return (
-    <div className="space-y-8">
+    <div className="max-w-5xl px-6 py-8 mx-auto space-y-8">
       <div className="space-y-6">
         <div className="space-y-4">
-          <div className="text-4xl font-semibold">Seungjae's Portfolio</div>
-          <div className="text-slate-500">
-            세련된 디자인에 심혈을 기울인 포트폴리오 사이트입니다. React로
-            제작하고 GitHub Pages에 Deployment 했습니다. 사이트 완성도를 높이기
-            위한 기능들을 다양하게 구현했습니다.
+          <div className="px-4 text-white bg-black rounded w-fit">
+            {category}
           </div>
+          <div className="text-4xl font-semibold">{title}</div>
+          <div className="text-slate-500">{summary}</div>
         </div>
-        <div className="flex space-x-2">
-          <button
-            className="flex px-3 py-2 space-x-2 text-gray-500 border rounded"
-            onClick={() => {}}
-          >
-            {linkIcon}
-          </button>
-          <button
-            className="flex px-3 py-2 space-x-2 text-gray-500 border rounded"
-            onClick={() => {}}
-          >
-            {googlePlayIcon}
-          </button>
-          <button
-            className="flex px-3 py-2 space-x-2 text-gray-500 border rounded"
-            onClick={() => {}}
-          >
-            {gitHubIcon}
-          </button>
-        </div>
+        {buttons}
       </div>
       <div className="flex space-x-2 overflow-scroll">
-        {photoList.map((p, i) => (
-          <div className="h-48 overflow-hidden bg-black shrink-0" key={i}>
-            <ImgFrame small={p.small} big={p.big}></ImgFrame>
-          </div>
-        ))}
+        {screenshots ? (
+          screenshots.map((s, i) => (
+            <div className="h-48 overflow-hidden bg-black shrink-0" key={i}>
+              <ImgFrame small={s.small} big={s.big}></ImgFrame>
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="space-y-6">
         <div className="space-y-4">
           <div className="text-xl font-semibold">Main features</div>
-          <div>
-            Donec massa lorem, aliquam eu lacus non, interdum rutrum tellus.
-            Donec a aliquet augue. Ut.
-          </div>
+          <div>{mainFeatures ? mainFeatures.join(", ") : <></>}</div>
         </div>
-
         {prefix}
       </div>
 
       <div className="space-y-4">
         <div className="text-xl font-semibold">About this work</div>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          molestie, lorem id consectetur rutrum, augue massa mollis arcu, id
-          tincidunt odio turpis non purus. Mauris at ultricies lectus. Proin et
-          lorem molestie, pulvinar sem ultrices, pharetra lacus. Duis aliquet
-          tincidunt mi, eget cursus enim sodales at. Interdum et malesuada fames
-          ac ante ipsum primis in faucibus. In ac justo orci. Cras in ipsum
-          vitae odio vestibulum sagittis. Mauris eget metus sed massa finibus
-          eleifend ac at velit. Vivamus eu erat efficitur, dapibus nunc non,
-          lobortis massa. Praesent eu felis tellus. Phasellus pulvinar massa
-          purus, sit amet efficitur eros fermentum sed. Vestibulum sapien mi,
-          varius at ultricies id, aliquet sit amet metus. Etiam tempor quis
-          lacus ullamcorper aliquet. Morbi vehicula mauris risus, at maximus
-          ipsum laoreet ut. Maecenas egestas diam orci, et ornare ante posuere
-          eget. Nulla non ultricies tortor, ut suscipit lacus. Fusce id luctus
-          libero. Curabitur sollicitudin nunc ac molestie mollis. Vestibulum
-          consequat, leo et venenatis ullamcorper, leo tortor tempus ex, vel
-          malesuada enim odio in erat. Donec sit amet lacinia ligula.
+        <div className="space-y-1">
+          {thisWork ? thisWork.map((t, i) => <div key={i}>{t}</div>) : <></>}
         </div>
       </div>
 
       <div className="space-y-6">
         <div className="space-y-4">
           <div className="text-xl font-semibold">Related articles</div>
-          <div>
-            Donec massa lorem, aliquam eu lacus non, interdum rutrum tellus.
-            Donec a aliquet augue. Ut.
-          </div>
+          <div>{relatedArticles}</div>
         </div>
-        <div className="flex flex-col text-blue-500">
-          <div>Vestibulum faucibus hendrerit nunc et accumsan?</div>
-          <div>Donec pharetra ut leo.</div>
+        <div className="flex flex-col space-y-1 text-blue-600">
+          {relatedAritcleLinks ? (
+            relatedAritcleLinks.map((r, i) => (
+              <a href={r[1]} target="_blank" rel="noreferrer" key={i}>
+                {r[0]}
+              </a>
+            ))
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
